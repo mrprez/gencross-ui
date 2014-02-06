@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<packaging>jar</packaging>
+	
+	<artifactId>gencross-ui</artifactId>
+	<groupId>com.mrprez.gencross</groupId>
+	<version>1.5-SNAPSHOT</version>
+	
+	<name>GenCrossUI</name>
+	
+	<parent>
+		<artifactId>mrprez</artifactId>
+		<groupId>com.mrprez</groupId>
+		<version>1.0</version>
+	</parent>
+	
+	<dependencies>
+		<dependency>
+			<artifactId>gencross</artifactId>
+			<groupId>com.mrprez.gencross</groupId>
+			<version>${gencross.version}</version>
+		</dependency>
+		
+
+	</dependencies>
+	
+	<properties>
+		<maven.resources.escapeWindowsPaths>false</maven.resources.escapeWindowsPaths>
+	</properties>
+	
+	<build>
+		<resources>
+			<resource>
+				<directory>${project.basedir}/src/main/resources</directory>
+			</resource>
+			<resource>
+				<directory>src/main/iss</directory>
+				<filtering>true</filtering>
+				<targetPath>${project.build.directory}/generated-resources</targetPath>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.4</version>
+				<executions>
+					<execution>
+						<id>copy</id>
+						<phase>package</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<artifactId>plugin-repository</artifactId>
+									<groupId>com.mrprez.gencross.plugins</groupId>
+									<version>${plugin-repository.version}</version>
+									<classifier>pluginRepository</classifier>
+									<type>zip</type>
+									<overWrite>true</overWrite>
+									<outputDirectory>${project.build.directory}/repository</outputDirectory>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.bluestemsoftware.open.maven.plugin</groupId>
+				<artifactId>launch4j-plugin</artifactId>
+				<version>1.5.0.0</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>launch4j</goal>
+						</goals>
+						<configuration>
+							<headerType>gui</headerType>
+							<jar>target/gencross-ui-${project.version}-jar-with-dependencies.jar</jar>
+							<icon>src/main/launch4j/GenCross.ico</icon>
+							<classPath>
+								<mainClass>com.mrprez.gencross.ui.GenCrossUI</mainClass>
+							</classPath>
+							<jre>
+								<minVersion>1.6.0</minVersion>
+							</jre>
+							<splash>
+								<file>src/main/launch4j/logo_GenCross.bmp</file>
+								<waitForWindow>true</waitForWindow>
+								<timeout>60</timeout>
+								<timeoutErr>true</timeoutErr>
+							</splash>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.2.1</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<executable>${iss.exe}</executable>
+							<arguments>
+								<argument>${project.build.directory}/generated-resources/GenCross.iss</argument>
+							</arguments>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.3</version>
+				<executions>
+					<execution>
+						<id>BuildBigJar</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<descriptorRefs>
+								<descriptorRef>jar-with-dependencies</descriptorRef>
+							</descriptorRefs>
+						</configuration>
+					</execution>
+					<execution>
+						<id>PrepareSetUp</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<descriptors>
+								<descriptor>src/assemble/setup-distribution.xml</descriptor>
+							</descriptors>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			
+		</plugins>
+
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.apache.maven.plugins
+										</groupId>
+										<artifactId>
+											maven-dependency-plugin
+										</artifactId>
+										<versionRange>
+											[2.4,)
+										</versionRange>
+										<goals>
+											<goal>unpack</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>
