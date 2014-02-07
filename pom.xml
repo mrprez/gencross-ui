@@ -57,10 +57,10 @@
 						<configuration>
 							<artifactItems>
 								<artifactItem>
-									<artifactId>plugin-repository</artifactId>
-									<groupId>com.mrprez.gencross.plugins</groupId>
-									<version>${plugin-repository.version}</version>
-									<classifier>pluginRepository</classifier>
+									<artifactId>plugins-repository</artifactId>
+									<groupId>com.mrprez.gencross</groupId>
+									<version>1.1-SNAPSHOT</version>
+									<classifier>repository</classifier>
 									<type>zip</type>
 									<overWrite>true</overWrite>
 									<outputDirectory>${project.build.directory}/repository</outputDirectory>
