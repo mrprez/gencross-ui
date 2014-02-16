@@ -5,7 +5,7 @@
 
 [Setup]
 AppName=GenCross
-AppVerName=GenCross version 1.1
+AppVerName=GenCross version ${pom.version}
 DefaultDirName={pf}\GenCross
 DefaultGroupName=GenCross
 Compression=lzma
