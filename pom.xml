@@ -13,7 +13,7 @@
 	<parent>
 		<artifactId>mrprez</artifactId>
 		<groupId>com.mrprez</groupId>
-		<version>1.1</version>
+		<version>1.4</version>
 	</parent>
 	
 	<dependencies>
@@ -32,7 +32,7 @@
 	
 	<scm>
 		<connection>scm:git:git://github.com/mrprez/gencross-ui.git</connection>
-		<developerConnection>scm:git:https://github.com/mrprez/gencross-ui.git</developerConnection>
+		<developerConnection>scm:git:git@github.com:mrprez/gencross-ui.git</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
 	
