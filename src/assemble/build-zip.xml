@@ -25,6 +25,7 @@
 	</fileSets>
 	<dependencySets>
 		<dependencySet>
+			<outputFileNameMapping>${artifactId}.${extension} </outputFileNameMapping>
 			<outputDirectory>/</outputDirectory>
 			<unpack>false</unpack>
 			<scope>runtime</scope>
