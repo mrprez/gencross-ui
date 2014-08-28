@@ -54,6 +54,7 @@ public class GenCrossUI {
 		} catch (Exception e) {
 			ErrorFrame errorFrame = new ErrorFrame(e);
 			errorFrame.setVisible(true);
+			e.printStackTrace();
 			System.exit(-1);
 		}
 	}
