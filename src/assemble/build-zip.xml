@@ -25,7 +25,7 @@
 	</fileSets>
 	<dependencySets>
 		<dependencySet>
-			<outputFileNameMapping>${artifactId}.${module.extension}</outputFileNameMapping>
+			<outputFileNameMapping>${artifactId}.jar</outputFileNameMapping>
 			<outputDirectory>/</outputDirectory>
 			<unpack>false</unpack>
 			<scope>runtime</scope>
