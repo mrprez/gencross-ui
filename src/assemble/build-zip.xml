@@ -28,7 +28,6 @@
 			<outputFileNameMapping>${artifactId}.jar</outputFileNameMapping>
 			<outputDirectory>/</outputDirectory>
 			<unpack>false</unpack>
-			<scope>runtime</scope>
 		</dependencySet>
 	</dependencySets>
 </assembly>
