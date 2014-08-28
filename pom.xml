@@ -37,6 +37,7 @@
 	</scm>
 	
 	<build>
+		<finalName>gencross-ui</finalName>
 		<resources>
 			<resource>
 				<directory>${project.basedir}/src/main/resources</directory>
