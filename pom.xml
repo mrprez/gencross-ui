@@ -78,62 +78,17 @@
 			</plugin>
 			
 			<plugin>
-				<groupId>org.bluestemsoftware.open.maven.plugin</groupId>
-				<artifactId>launch4j-plugin</artifactId>
-				<version>1.5.0.0</version>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>launch4j</goal>
-						</goals>
-						<configuration>
-							<headerType>gui</headerType>
-							<jar>target/gencross-ui-${project.version}-jar-with-dependencies.jar</jar>
-							<icon>src/main/launch4j/GenCross.ico</icon>
-							<classPath>
-								<mainClass>com.mrprez.gencross.ui.GenCrossUI</mainClass>
-							</classPath>
-							<jre>
-								<minVersion>1.6.0</minVersion>
-							</jre>
-							<splash>
-								<file>src/main/launch4j/logo_GenCross.bmp</file>
-								<waitForWindow>true</waitForWindow>
-								<timeout>60</timeout>
-								<timeoutErr>true</timeoutErr>
-							</splash>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-
-			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
-				<version>2.3</version>
+				<version>2.4.1</version>
 				<executions>
 					<execution>
-						<id>BuildBigJar</id>
-						<phase>prepare-package</phase>
-						<goals>
-							<goal>single</goal>
-						</goals>
-						<configuration>
-							<descriptorRefs>
-								<descriptorRef>jar-with-dependencies</descriptorRef>
-							</descriptorRefs>
-						</configuration>
-					</execution>
-					<execution>
-						<id>PrepareSetUp</id>
+						<id>Executable JAR</id>
 						<phase>package</phase>
 						<goals>
 							<goal>single</goal>
 						</goals>
 						<configuration>
-							<descriptors>
-								<descriptor>src/assemble/setup-distribution.xml</descriptor>
-							</descriptors>
+							<descriptor>src/assembly/build-zip.xml</descriptor>
 						</configuration>
 					</execution>
 				</executions>
