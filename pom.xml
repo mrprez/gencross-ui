@@ -65,7 +65,7 @@
 								<artifactItem>
 									<artifactId>plugins-repository</artifactId>
 									<groupId>com.mrprez.gencross</groupId>
-									<version>1.2</version>
+									<version>1.3</version>
 									<classifier>repository</classifier>
 									<type>zip</type>
 									<overWrite>true</overWrite>
