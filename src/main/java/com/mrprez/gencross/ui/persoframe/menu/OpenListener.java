@@ -32,18 +32,16 @@ public class OpenListener implements ActionListener {
 		    	try{
 					personnage = GenCrossUI.getInstance().getPersonnageFactory().loadPersonnageFromGcr(file);
 				}catch (PersonnageVersionException e) {
-					// TODO
-					/*if(e.getFileVersion()!=null && e.getPluginVersion()!=null && e.getFileVersion().compareTo(e.getPluginVersion())<0){
-						int result = JOptionPane.showConfirmDialog(PersoFrame.getInstance(), "Votre fichier n'est pas dans le bonne version, voulez vous le convertir?", "Version", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+					if(e.getFileVersion()!=null && e.getPluginVersion()!=null && e.getFileVersion().compareTo(e.getPluginVersion())<0){
+						int result = JOptionPane.showConfirmDialog( GenCrossUI.getInstance().getPersoFrame(), "Votre fichier n'est pas dans le bonne version, voulez vous le convertir?", "Version", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
 						if(result==JOptionPane.OK_OPTION){
-							PersonnageLoader.getInstance().setAcceptMigration(true);
-							personnage = PersonnageLoader.getInstance().createPersonnageFromGcr(file);
-							PersonnageLoader.getInstance().setAcceptMigration(false);
+							GenCrossUI.getInstance().getPersonnageFactory().setAcceptMigration(true);
+							personnage = GenCrossUI.getInstance().getPersonnageFactory().loadPersonnageFromGcr(file);
+							GenCrossUI.getInstance().getPersonnageFactory().setAcceptMigration(false);
 						}
 					}else{
-						JOptionPane.showMessageDialog(PersoFrame.getInstance(), e.getMessage(), "Version", JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(GenCrossUI.getInstance().getPersoFrame(), e.getMessage(), "Version", JOptionPane.ERROR_MESSAGE);
 					}
-					*/
 				}
 				if(personnage!=null){
 					GenCrossUI.getInstance().setPersonnage(personnage);
