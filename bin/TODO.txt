@@ -1,0 +1,6 @@
+Gestion du lancement(Thread safe - AET)
+Filtrage de l'historique
+Utilistation des renderer dans le tableau des historiques
+Retravailler la fenetre des dépenses
+Suppression du repertoire repository lors de la desinstallation: à tester
+Export: design

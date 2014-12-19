@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<packaging>jar</packaging>
+	
+	<artifactId>gencross-ui</artifactId>
+	<groupId>com.mrprez.gencross</groupId>
+	<version>1.9-SNAPSHOT</version>
+	
+	<name>GenCrossUI</name>
+	
+	<parent>
+		<artifactId>mrprez</artifactId>
+		<groupId>com.mrprez</groupId>
+		<version>1.4</version>
+	</parent>
+	
+	<dependencies>
+		<dependency>
+			<artifactId>gencross</artifactId>
+			<groupId>com.mrprez.gencross</groupId>
+			<version>1.16-SNAPSHOT</version>
+		</dependency>
+		
+
+	</dependencies>
+	
+	<properties>
+		<maven.resources.escapeWindowsPaths>false</maven.resources.escapeWindowsPaths>
+	</properties>
+	
+	<scm>
+		<connection>scm:git:git://github.com/mrprez/gencross-ui.git</connection>
+		<developerConnection>scm:git:git@github.com:mrprez/gencross-ui.git</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
+	
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		<resources>
+			<resource>
+				<directory>${project.basedir}/src/main/resources</directory>
+			</resource>
+			<resource>
+				<directory>src/main/iss</directory>
+				<filtering>true</filtering>
+				<targetPath>${project.build.directory}/generated-resources</targetPath>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.4</version>
+				<executions>
+					<execution>
+						<id>copy</id>
+						<phase>package</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<artifactId>plugins-repository</artifactId>
+									<groupId>com.mrprez.gencross</groupId>
+									<version>1.4</version>
+									<classifier>repository</classifier>
+									<type>zip</type>
+									<overWrite>true</overWrite>
+									<outputDirectory>${project.build.directory}/repository</outputDirectory>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.4.1</version>
+				<executions>
+					<execution>
+						<id>Executable JAR</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<descriptor>src/assembly/build-zip.xml</descriptor>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			
+		</plugins>
+
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.apache.maven.plugins
+										</groupId>
+										<artifactId>
+											maven-dependency-plugin
+										</artifactId>
+										<versionRange>
+											[2.4,)
+										</versionRange>
+										<goals>
+											<goal>unpack</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>
