@@ -2,4 +2,3 @@ repository/*
 .settings/
 target/
 .classpath
-/bin
