@@ -6,7 +6,7 @@
 	
 	<artifactId>gencross-ui</artifactId>
 	<groupId>com.mrprez.gencross</groupId>
-	<version>1.9-SNAPSHOT</version>
+	<version>1.10-SNAPSHOT</version>
 	
 	<name>GenCrossUI</name>
 	
@@ -20,7 +20,7 @@
 		<dependency>
 			<artifactId>gencross</artifactId>
 			<groupId>com.mrprez.gencross</groupId>
-			<version>1.16-SNAPSHOT</version>
+			<version>1.16</version>
 		</dependency>
 		
 
@@ -65,7 +65,7 @@
 								<artifactItem>
 									<artifactId>plugins-repository</artifactId>
 									<groupId>com.mrprez.gencross</groupId>
-									<version>1.4</version>
+									<version>1.6</version>
 									<classifier>repository</classifier>
 									<type>zip</type>
 									<overWrite>true</overWrite>
