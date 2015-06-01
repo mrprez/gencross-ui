@@ -6,7 +6,7 @@
 	
 	<artifactId>gencross-ui</artifactId>
 	<groupId>com.mrprez.gencross</groupId>
-	<version>1.10-SNAPSHOT</version>
+	<version>1.10</version>
 	
 	<name>GenCrossUI</name>
 	
@@ -33,7 +33,7 @@
 	<scm>
 		<connection>scm:git:git://github.com/mrprez/gencross-ui.git</connection>
 		<developerConnection>scm:git:git@github.com:mrprez/gencross-ui.git</developerConnection>
-		<tag>HEAD</tag>
+		<tag>gencross-ui-1.10</tag>
 	</scm>
 	
 	<build>
