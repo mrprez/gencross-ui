@@ -6,8 +6,6 @@ import java.awt.event.MouseListener;
 import javax.swing.JPopupMenu;
 import javax.swing.tree.TreePath;
 
-import com.mrprez.gencross.ui.GenCrossUI;
-
 
 public class PopupListener implements MouseListener {
 	private JPopupMenu popupMenu;
@@ -47,8 +45,6 @@ public class PopupListener implements MouseListener {
 
 	private void maybeShowPopup(MouseEvent e) {
 		if (e.isPopupTrigger()) {
-			GenCrossUI.getCurrentPersoFrame().getViewCommentFrame().setLocation(e.getLocationOnScreen());
-			GenCrossUI.getCurrentPersoFrame().getEditCommentFrame().setLocation(e.getLocationOnScreen());
 			popupMenu.show(e.getComponent(), e.getX(), e.getY());
 		}
 	}

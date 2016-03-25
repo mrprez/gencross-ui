@@ -30,8 +30,6 @@ public class CloseListener implements WindowListener {
 			}
 		}
 		GenCrossUI.getCurrentPersoFrame().getHistoryFrame().dispose();
-		GenCrossUI.getCurrentPersoFrame().getEditCommentFrame().dispose();
-		GenCrossUI.getCurrentPersoFrame().getViewCommentFrame().dispose();
 		GenCrossUI.getCurrentPersoFrame().dispose();
 	}
 

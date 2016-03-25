@@ -29,8 +29,6 @@ import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 
 import com.mrprez.gencross.ui.GenCrossUI;
-import com.mrprez.gencross.ui.comment.EditCommentFrame;
-import com.mrprez.gencross.ui.comment.ViewCommentFrame;
 import com.mrprez.gencross.ui.history.HistoryFrame;
 import com.mrprez.gencross.ui.persoframe.menu.CancelListener;
 import com.mrprez.gencross.ui.persoframe.menu.PersoMenuBar;
@@ -49,8 +47,6 @@ public class PersoFrame extends JFrame {
 	private JButton nextPhaseButton = new JButton("Next");
 	private PersoMenuBar menuBar;
 	private HistoryFrame historyFrame;
-	private EditCommentFrame editCommentFrame = new EditCommentFrame();
-	private ViewCommentFrame viewCommentFrame = new ViewCommentFrame();
 	private static final String onCtrlZ = "onCtrlZ";
 	private ImageIcon modifyIcon;
 	
@@ -126,14 +122,6 @@ public class PersoFrame extends JFrame {
 		return historyFrame;
 	}
 	
-	public EditCommentFrame getEditCommentFrame(){
-		return editCommentFrame;
-	}
-	
-	public ViewCommentFrame getViewCommentFrame(){
-		return viewCommentFrame;
-	}
-	
 	public void reinit(){
 		historyFrame.reinit();
 		reinitMenuBar();
@@ -146,8 +134,6 @@ public class PersoFrame extends JFrame {
 		propertyTree.setPersonnage(GenCrossUI.getInstance().getPersonnage());
 		propertyTree.update();
 		SwingUtilities.updateComponentTreeUI(propertyTree);
-		editCommentFrame.setVisible(false);
-		viewCommentFrame.setVisible(false);
 	}
 	
 	public void setModifyIcon(ImageIcon modifyIcon) {

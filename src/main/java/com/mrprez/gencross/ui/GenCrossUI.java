@@ -79,8 +79,6 @@ public class GenCrossUI {
 	
 	public static void reinit() throws HeadlessException, CloneNotSupportedException, IOException, URISyntaxException{
 		GenCrossUI.getCurrentPersoFrame().getHistoryFrame().dispose();
-		GenCrossUI.getCurrentPersoFrame().getEditCommentFrame().dispose();
-		GenCrossUI.getCurrentPersoFrame().getViewCommentFrame().dispose();
 		GenCrossUI.getCurrentPersoFrame().dispose();
 		initInstance(instance.repositoryManager.getRepository());
 	}
@@ -88,6 +86,11 @@ public class GenCrossUI {
 	public static GenCrossUI initInstance(File repository) throws HeadlessException, CloneNotSupportedException, IOException, URISyntaxException{
 		instance = new GenCrossUI(repository);
 		return instance;
+	}
+	
+	
+	public static void unsetInstance(){
+		instance = null;
 	}
 
 	
