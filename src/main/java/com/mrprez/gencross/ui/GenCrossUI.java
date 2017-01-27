@@ -38,6 +38,9 @@ public class GenCrossUI {
 		try {
 			File executionDirectory  = getExecutionDirectory();
 			File personnageRepository = new File(executionDirectory, PERSONNAGE_REPOSITORY_NAME);
+			if (!personnageRepository.exists()) {
+				personnageRepository.mkdirs();
+			}
 			instance = new GenCrossUI(personnageRepository);
 			if(args.length>0){
 				try{
