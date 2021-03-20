@@ -22,7 +22,7 @@ public class AddPropertyEditor extends JPanel {
 	public static String AUTRE = "Autre...";
 	public static String PROPERTY_NAME = "Nom de la propriété: ";
 	public static String NO_OPTIONS = "Aucune option disponible.";
-	private JComboBox comboBox;
+	private JComboBox<String> comboBox;
 	private String title;
 	private Component parent;
 	private JTextField textField;
@@ -45,7 +45,7 @@ public class AddPropertyEditor extends JPanel {
 		panel = new JPanel();
 		panel.setLayout(new FlowLayout());
 		if(!optionSet.isEmpty()){
-			comboBox = new JComboBox(optionSet.toArray());
+			comboBox = new JComboBox<String>(optionSet.toArray(new String[0]));
 			panel.add(comboBox);
 			if(propertiesList.isOpen()){
 				textField = new JTextField(12);

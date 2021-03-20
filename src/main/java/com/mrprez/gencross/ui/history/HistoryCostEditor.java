@@ -15,7 +15,7 @@ public class HistoryCostEditor {
 	private JButton addButton = new JButton("+");
 	private JLabel costLabel = new JLabel("0");
 	private Integer cost = 0;
-	private JComboBox comboBox = new JComboBox();
+	private JComboBox<String> comboBox = new JComboBox<>();
 	private int selectedOption;
 	private JPanel panel = new JPanel();
 	
@@ -24,7 +24,7 @@ public class HistoryCostEditor {
 		super();
 		this.cost = cost;
 		costLabel.setText(""+cost);
-		comboBox = new JComboBox(GenCrossUI.getCurrentPersonnage().getPointPools().keySet().toArray());
+		comboBox = new JComboBox<String>(GenCrossUI.getCurrentPersonnage().getPointPools().keySet().toArray(new String[0]));
 		comboBox.setSelectedItem(pointPoolName);
 		minusButton.addActionListener(new HistoryCostIncButtonListener(-1, this));
 		addButton.addActionListener(new HistoryCostIncButtonListener(1, this));

@@ -17,7 +17,7 @@ public class ExportDialog extends JDialog {
 	private static final long serialVersionUID = 1L;
 	
 	private JLabel generatorLabel = new JLabel("Type d'exportation:");
-	private JComboBox generatorList = new JComboBox(FileGenerator.getGeneratorList().keySet().toArray());
+	private JComboBox<String> generatorList = new JComboBox<String>(FileGenerator.getGeneratorList().keySet().toArray(new String[0]));
 	private JLabel templateLabel = new JLabel("Séléctionnez un template:");
 	private JTextField templateTextField = new JTextField(30);
 	private JButton selectTemplateButton = new JButton("Parcourir");

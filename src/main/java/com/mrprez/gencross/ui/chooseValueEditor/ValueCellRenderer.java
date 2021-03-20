@@ -19,9 +19,9 @@ public class ValueCellRenderer extends DefaultListCellRenderer {
 	}
 
 	@Override
-	public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+	public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
 		if(value instanceof Value){
-			JLabel result = (JLabel) super.getListCellRendererComponent(list,value, index, isSelected, cellHasFocus);
+			JLabel result = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
 			result.setText(renderer.displayValue((Value)value));
 			return result;
 		}

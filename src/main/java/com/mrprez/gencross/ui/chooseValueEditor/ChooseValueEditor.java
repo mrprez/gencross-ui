@@ -18,7 +18,7 @@ public class ChooseValueEditor {
 	}
 	
 	public Value askValue(){
-		JComboBox comboBox = new JComboBox(property.getOptions().toArray());
+		JComboBox<Value> comboBox = new JComboBox<Value>(property.getOptions().toArray(new Value[0]));
 		comboBox.setRenderer(new ValueCellRenderer(property.getRenderer()));
 		comboBox.setSelectedItem(property.getValue());
 		int result = JOptionPane.showConfirmDialog(GenCrossUI.getInstance().getPersoFrame(), comboBox, property.getFullName(),JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);

@@ -26,7 +26,8 @@ public class SelectFileGeneratorListener implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent event) {
-		Class<? extends FileGenerator> selectedFileGeneratorClass = FileGenerator.getGeneratorList().get(((JComboBox)event.getSource()).getSelectedItem());
+		@SuppressWarnings("unchecked")
+		Class<? extends FileGenerator> selectedFileGeneratorClass = FileGenerator.getGeneratorList().get(((JComboBox<String>)event.getSource()).getSelectedItem());
 		boolean templatedGenerator = TemplatedFileGenerator.class.isAssignableFrom(selectedFileGeneratorClass);
 		selectTemplateButton.setEnabled(templatedGenerator);
 		templateTextField.setEnabled(templatedGenerator);
